@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Users posts
+    </ion-title>
+  </ion-toolbar>
+<ion-toolbar>
+  <ion-searchbar placeholder="Search posts" (ionChange)="showPosts($event)"></ion-searchbar>
+</ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-list>
+  </ion-list>
+  <ion-card class="card-background"  *ngFor="let postlist of results; let i=index;">
+    <ion-card-header class="padding-top-bottom">
+      <ion-label class="id-post">Post ID: {{postlist.id}}</ion-label><br>
+      <ion-label class="title" >{{postlist.title}}</ion-label>
+    </ion-card-header>
+    <ion-card-content class="card-content">
+     {{postlist.body}}
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="noResultFlag" class="no-result">
+    <ion-label>No results found</ion-label>
+  </div>
+</ion-content>
